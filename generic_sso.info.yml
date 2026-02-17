@@ -1,5 +1,5 @@
 name: 'Generic SSO'
-description: "Single sign-on (SSO) authentication via server-provided (configurable) REMOTE_USER variable.",
+description: "Single sign-on (SSO) authentication via server-provided (configurable) REMOTE_USER variable."
 package: 'Authentication'
 
 type: module
