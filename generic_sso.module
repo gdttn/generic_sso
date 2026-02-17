@@ -27,7 +27,22 @@ function generic_sso_user_logout($account) {
     $redirect = new RedirectResponse(Url::fromUserInput($redirect_url)->toString());
     $redirect->send();
   }
+}
 
+/**
+ * Implements hook_menu().
+ */
+function generic_sso_menu() {
+  $items = array();
+  $items['admin/config/people/generic_sso'] = array(
+    'title' => 'Generic SSO',
+    'description' => 'Configure Generic (SSO) Authentication.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mymodule_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
 }
 
 /**
