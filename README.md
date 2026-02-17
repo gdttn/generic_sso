@@ -26,3 +26,12 @@ user@domain or user@realm, you will need to enable realm stripping options.
 
 This code was derived from [ldap_sso](https://www.drupal.org/project/ldap_sso)
 (with all LDAP dependencies removed and simplified where possible).
+
+## Transition from ldap_sso
+
+* You can import the relevant config variables from the old module using [...]
+  
+* If the new form doesn't appear in the appropriate admin menu, you can navigate to
+  it via the Extend menu or by URL.  It might be useful to try running
+     `\Drupal::service('plugin.manager.menu.link')->rebuild()`
+  _after_ removing ldap_sso in `drush`, for changes to take effect.
