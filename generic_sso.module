@@ -1,0 +1,43 @@
+<?php
+/**
+ * Generic SSO Module file.
+ */
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_user_logout().
+ */
+function generic_sso_user_logout($account) {
+  $config = \Drupal::config('generic_sso.settings');
+  if ($config->get('seamlessLogin') === TRUE) {
+    if ($config->get('cookieExpire')) {
+      $request_time = \Drupal::time()->getRequestTime();
+      setcookie('sso_stop', 'sso_stop', $request_time - 3600, base_path(), '');
+    } else {
+      setcookie('sso_stop', 'sso_stop', 0, base_path(), '');
+    }
+  }
+
+  if ($config->get('redirectOnLogout')) {
+    $redirect_url = $config->get('logoutRedirectPath');
+    $redirect = new RedirectResponse(Url::fromUserInput($redirect_url)->toString());
+    $redirect->send();
+  }
+
+}
+
+/**
+ * Implements hook_help().
+ */
+function generic_sso_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name === 'help.page.generic_sso') {
+    $output = '';
+    $output .= '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('The Generic SSO module provides authentication support for environments where the username is provided by the server via environment headers such as REMOTE_USER.') . '</p>';
+    return $output;
+  }
+}

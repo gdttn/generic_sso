@@ -1,0 +1,9 @@
+{
+    "name": "drupal/generic_sso",
+    "description": "Provides single sign-on (SSO) authentication via server-provided (configurable) REMOTE_USER variable.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/core": "^10 || ^11 || ^12"
+    }
+}

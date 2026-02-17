@@ -1,0 +1,11 @@
+services:
+  logger.channel.generic_sso:
+    parent: logger.channel_base
+    arguments: ['generic_sso']
+  generic_sso.boot:
+    class: Drupal\generic_sso\GenericSsoBootSubscriber
+    arguments: ['@config.factory', '@request_stack', '@path.current', '@logger.channel.generic_sso', '@current_user', '@redirect.destination']
+    tags:
+      - { name: 'event_subscriber' }
+  generic_sso.server_variable:
+    class: Drupal\generic_sso\ServerVariableLookup

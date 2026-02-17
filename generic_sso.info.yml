@@ -1,0 +1,8 @@
+name: 'Generic SSO'
+description: "Single sign-on (SSO) authentication via server-provided (configurable) REMOTE_USER variable.",
+package: 'Authentication'
+
+type: module
+core_version_requirement: ^10 || ^11 || ^12
+
+configure: generic_sso.admin_form

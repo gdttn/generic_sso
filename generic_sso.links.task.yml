@@ -1,0 +1,4 @@
+generic_sso.admin_form:
+  route_name: generic_sso.admin_form
+  title: 'Generic SSO'
+  base_route: generic_sso.admin_form

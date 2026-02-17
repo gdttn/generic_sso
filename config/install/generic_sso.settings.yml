@@ -1,0 +1,11 @@
+seamlessLogin: false
+ssoSplitUserRealm: true
+cookieExpire: false
+ssoVariable: REMOTE_USER
+ssoExcludedPaths: {  }
+ssoExcludedHosts: {  }
+redirectOnLogout: true
+logoutRedirectPath: '/user/login'
+enableLoginConfirmationMessage: true
+autoCreateUser: false
+langcode: en

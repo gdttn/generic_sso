@@ -1,0 +1,16 @@
+generic_sso.login_controller:
+  path: '/user/login/sso'
+  defaults:
+    _controller: '\Drupal\generic_sso\Controller\LoginController::login'
+    _title: 'User Login'
+  requirements:
+    _custom_access: '\Drupal\generic_sso\Controller\LoginController::access'
+  options:
+    no_cache: TRUE
+generic_sso.admin_form:
+  path: /admin/config/people/generic-sso
+  defaults:
+    _title: 'Generic SSO'
+    _form: \Drupal\generic_sso\Form\GenericSsoAdminForm
+  requirements:
+    _permission: 'administer site configuration'
