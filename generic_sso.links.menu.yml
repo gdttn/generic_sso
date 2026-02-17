@@ -2,5 +2,5 @@ generic_sso.admin_form:
   title: 'Generic SSO'
   description: 'Configure generic (SSO) authentication via server-provided REMOTE_USER variable.'
   route_name: generic_sso.admin_form
-  parent: system.admin_config_people
+  parent: user.admin_index
   weight: 10
