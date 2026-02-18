@@ -29,9 +29,12 @@ This code was derived from [ldap_sso](https://www.drupal.org/project/ldap_sso)
 
 ## Transition from ldap_sso
 
-* You can import the relevant config variables from the old module using [...]
-  
-* If the new form doesn't appear in the appropriate admin menu, you can navigate to
-  it via the Extend menu or by URL.  It might be useful to try running
+* You can install both ldap_sso and generic_sso concurrently, but generic_sso will take priority
+  once it is enabled, so you must ensure the configuration is copied over using `drush` or the UI
+  during maintenance.  You can then disable and uninstall the ldap_sso module (and the rest of the
+  ldap stack, assuming you do not use it) at your leisure.
+
+* If the new form doesn't appear in the appropriate admin menu (Admin -> Configure -> People),
+  you can navigate to it via the Extend menu or by URL.  It might be useful to try running
      `\Drupal::service('plugin.manager.menu.link')->rebuild()`
-  _after_ removing ldap_sso in `drush`, for changes to take effect.
+  (_after_ removing ldap_sso in `drush`) for changes to take effect.
